@@ -506,6 +506,7 @@ public class ObjectCodecBuilder extends BaseObjectCodecBuilder {
   }
 
   protected Expression createRecord(SortedMap<Integer, Expression> recordComponents) {
+      System.out.println("createRecord: " + recordComponents.values().toString() );
     Expression[] params = recordComponents.values().toArray(new Expression[0]);
     return new NewInstance(beanType, params);
   }

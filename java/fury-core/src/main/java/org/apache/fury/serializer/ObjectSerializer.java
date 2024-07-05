@@ -312,6 +312,7 @@ public final class ObjectSerializer<T> extends Serializer<T> {
 
   @Override
   public T read(MemoryBuffer buffer) {
+      System.out.println("ObjectSerializer read: "+ buffer.toString());
     if (isRecord) {
       Object[] fields = readFields(buffer);
       RecordUtils.remapping(recordInfo, fields);
