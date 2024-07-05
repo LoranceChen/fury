@@ -60,6 +60,7 @@ public final class SomeClassCFuryCompatibleCodec_1 extends Generated.GeneratedSe
       StringSerializer strSerializer = this.strSerializer;
       org.apache.fury.resolver.FieldResolver fieldResolver = this.fieldResolver;
       if ((value0 == 15193L)) {
+          //  -3 表示null
           if ((memoryBuffer1.readByte() != ((byte)-3))) {
               String string = strSerializer.readBytesString(memoryBuffer1);
               Platform.putObject(someClassC2, 20L, string);
@@ -136,7 +137,7 @@ public final class SomeClassCFuryCompatibleCodec_1 extends Generated.GeneratedSe
       SomeClassC someClassC4 = (SomeClassC)instance;
       refResolver.reference(someClassC4);
       long partFieldInfo = buffer._readInt32OnLE();
-      while ((((partFieldInfo & 3L) == ((byte)1)) && (partFieldInfo < 15193L))) {
+      while ((((partFieldInfo & 3L) == ((byte)1)) && (partFieldInfo < 15193L))) { // 序列化数据 小于当前最小值，说明该序列化数据不存在当前类中
         if ((fieldResolver.skipDataBy4(buffer, ((int)partFieldInfo)) == 9223372036854775806L)) {
             return someClassC4;
         }
