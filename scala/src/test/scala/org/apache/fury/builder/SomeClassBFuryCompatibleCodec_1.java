@@ -63,6 +63,8 @@ public final class SomeClassBFuryCompatibleCodec_1 extends Generated.GeneratedSe
           if ((memoryBuffer1.readByte() != ((byte)-3))) {
               String string = strSerializer.readBytesString(memoryBuffer1);
               Platform.putObject(someClassB2, 20L, string);
+              // 记录该字段反序列赋值过
+              // TODO
           } else {
               Platform.putObject(someClassB2, 20L, null);
           }
@@ -133,12 +135,15 @@ public final class SomeClassBFuryCompatibleCodec_1 extends Generated.GeneratedSe
       SomeClassB someClassB4 = (SomeClassB)instance;
       refResolver.reference(someClassB4);
       long partFieldInfo = buffer._readInt32OnLE();
+
+      // expressionBuilder.add(skipDataBy4Until(bean, buffer, partFieldInfo, minFieldInfo, false));
       while ((((partFieldInfo & 3L) == ((byte)1)) && (partFieldInfo < 15193L))) {
         if ((fieldResolver.skipDataBy4(buffer, ((int)partFieldInfo)) == 9223372036854775806L)) {
             return someClassB4;
         }
         partFieldInfo = buffer._readInt32OnLE();
       }
+
       partFieldInfo = this.readEmbedTypes4Fields(someClassB4, buffer, partFieldInfo);
       if ((partFieldInfo == 9223372036854775806L)) {
           return someClassB4;
